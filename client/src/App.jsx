@@ -1,14 +1,11 @@
-import LinkContainer from "./components/LinkContainer"
+import LinkContainer from "./components/LinkContainer";
 
-
-function App(){
-
-  return(
+function App() {
+  return (
     <div>
-    <LinkContainer />
+      <LinkContainer />
     </div>
-  )
-
+  );
 }
 
-export default App
+export default App;
