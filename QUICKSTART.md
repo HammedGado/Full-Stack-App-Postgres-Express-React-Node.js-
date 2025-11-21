@@ -4,24 +4,48 @@
 
 Full-stack application has been integrated! Here's what's ready:
 
+```
 ### Project Structure
 - ✅ **Client** (React app) - Copied from Project 3 (FavLinks)
 - ✅ **Server** (Express API) - Adapted from Project 4 (users API) to work with links
 - ✅ **Database Schema** - SQL file ready for links table
 - ✅ **Environment Files** - Example files provided
 - ✅ **Git Configuration** - .gitignore set up to protect sensitive data
+```
 
+```
 ### Features Implemented
-- ✅ **Create** - Add new links via form
-- ✅ **Read** - Display all links in table
-- ✅ **Update** - Edit existing links (NEW!)
+- ✅ **Create** - Add new links via form with category selection
+- ✅ **Read** - Display all links in table or card view
+- ✅ **Update** - Edit existing links
 - ✅ **Delete** - Remove links from database
+- ✅ **Search & Filter** - Real-time search and category filtering
+- ✅ **Sort** - Multiple sorting options (name, date, category)
+- ✅ **Card View** - Beautiful card layout with favicons
+- ✅ **Categories** - Color-coded category organization
 - ✅ **API Integration** - React connected to Express API using axios
-- ✅ **React Hooks** - useState and useEffect implemented
+- ✅ **React Hooks** - useState, useEffect, and useMemo implemented
 - ✅ **Props** - Components communicate via props
+```
 
 ## 🚀 Next Steps
 
+```
+### 1. Set Up Database
+
+```bash
+# Create database
+createdb your_database_name
+
+# Or using psql
+psql -U postgres
+CREATE DATABASE your_database_name;
+\q
+
+# Run schema
+psql -U your_db_user -d your_database_name -f server/database.sql
+```
+```markdown
 ### 1. Set Up Database
 
 ```bash
@@ -83,12 +107,18 @@ npm run dev
 # App runs on http://localhost:5173
 ```
 
+```markdown
 ### 5. Test the Application
 
 1. Open browser to `http://localhost:5173`
-2. Add a new link using the form
-3. Click "Edit" to update a link
-4. Click "Delete" to remove a link
+2. Add a new link using the form (select a category)
+3. Toggle between Table View and Card View
+4. Test search functionality - type in the search bar
+5. Filter by category using the dropdown
+6. Try different sort options
+7. Click "Edit" to update a link
+8. Click "Delete" to remove a link
+```
 
 ## 📝 Important Notes
 

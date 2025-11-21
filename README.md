@@ -4,11 +4,15 @@ A full-stack application demonstrating CRUD operations with React frontend, Expr
 
 ## Features
 
-- ✅ **Create** - Add new links with name and URL
-- ✅ **Read** - View all links in a table
+- ✅ **Create** - Add new links with name, URL, and category
+- ✅ **Read** - View all links in table or card view
 - ✅ **Update** - Edit existing links
 - ✅ **Delete** - Remove links from the database
-- ✅ React components with hooks (useState, useEffect)
+- ✅ **Search & Filter** - Real-time search by name/URL and filter by category
+- ✅ **Sort** - Sort links by name, date, or category
+- ✅ **Card View** - Beautiful card view with favicons and category badges
+- ✅ **Categories** - Organize links with color-coded categories (Work, Personal, Learning, etc.)
+- ✅ React components with hooks (useState, useEffect, useMemo)
 - ✅ Props for component communication
 - ✅ Secure environment variable management
 
@@ -16,20 +20,23 @@ A full-stack application demonstrating CRUD operations with React frontend, Expr
 
 ```
 Full Stack App/
-├── client/          # React frontend (Vite)
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Form.jsx
-│   │   │   ├── LinkContainer.jsx
-│   │   │   └── Table.jsx
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   └── package.json
-├── server/          # Express API backend
-│   ├── index.js
-│   ├── queries.js
-│   ├── database.sql
-│   └── package.json
+├── client/ # React frontend (Vite)
+│ ├── src/
+│ │ ├── components/
+│ │ │ ├── Form.jsx
+│ │ │ ├── LinkContainer.jsx
+│ │ │ ├── Table.jsx
+│ │ │ ├── SearchBar.jsx
+│ │ │ ├── CardView.jsx
+│ │ │ └── LinkCard.jsx
+│ │ ├── App.jsx
+│ │ └── main.jsx
+│ └── package.json
+├── server/ # Express API backend
+│ ├── index.js
+│ ├── queries.js
+│ ├── database.sql
+│ └── package.json
 ├── .gitignore
 └── README.md
 ```
@@ -54,16 +61,43 @@ CREATE DATABASE your_database_name;
 psql -U your_db_user -d your_database_name -f server/database.sql
 ```
 
-Or manually create the table:
+Or manually create the table with category support:
 ```sql
 CREATE TABLE links (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     url TEXT NOT NULL,
+    category VARCHAR(50) DEFAULT 'General',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
 
+```sql
+ALTER TABLE links ADD COLUMN category VARCHAR(50) DEFAULT 'General';
+```
+## Additional Features
+
+### Search & Filter
+- Real-time search by link name or URL
+- Filter links by category
+- Sort by name (A-Z, Z-A), date (newest, oldest), or category
+
+### View Modes
+- **Table View**: Traditional table layout with all details
+- **Card View**: Modern card layout with favicons and category badges
+
+### Categories
+Organize your links with predefined categories:
+- Work
+- Personal
+- Learning
+- Shopping
+- Entertainment
+- General (default)
+
+Each category has a unique color for easy identification.
+
+```
 ### 2. Backend Setup
 
 1. Navigate to the server directory:
